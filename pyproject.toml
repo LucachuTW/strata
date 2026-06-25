@@ -1,0 +1,79 @@
+[project]
+name = "strata"
+version = "0.1.0"
+description = "Agentic GraphRAG with hybrid vector+graph retrieval — fully local, open-source models"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "langchain-core>=0.3",
+    "langchain-openai>=0.2",
+    "langgraph>=0.2",
+    # [experimental] would add llama-index + pygraphviz (a C-compile, viz-only).
+    # We only need the LangChain text splitter at runtime; the KG pipeline code
+    # ships in the base package with lazy optional imports.
+    "neo4j-graphrag[qdrant]>=1.5",
+    "langchain-text-splitters>=0.3",
+    "qdrant-client>=1.10",
+    "neo4j>=5.20",
+    "sentence-transformers>=3.0",
+    # BM25 sparse vectors for lexical (exact-token) matching, fused with dense in
+    # Qdrant. Lightweight (onnxruntime, no torch) — closes the dense-retrieval gap
+    # on exact identifiers like CVE IDs.
+    "fastembed>=0.3",
+    "torch>=2.2",
+    "mcp>=1.0",
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.29",
+]
+
+[project.optional-dependencies]
+# docling (PDF -> markdown) is heavy; opt in with `uv sync --extra pdf`.
+pdf = ["docling>=2.0"]
+
+[project.scripts]
+strata = "strata.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/strata"]
+
+# Keep torch on CPU wheels: embeddings + reranker run on CPU so the 8 GB GPU
+# stays free for the local LLM (Ollama / vLLM). Switch to a CUDA index only if
+# embeddings are moved onto the GPU.
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[dependency-groups]
+dev = ["pytest>=8.0", "httpx>=0.27", "ruff>=0.5", "mypy>=1.10"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+# Lenient type gate: catches real breakage (None-deref, bad args, undefined names) without a
+# full typing rewrite. The ML libs (torch, qdrant, fastembed, langchain) ship no stubs, so
+# missing imports are ignored. ponytail: tighten per-module later only if it earns its keep.
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+files = ["src/strata"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["UP042"]
+
+[tool.ruff.format]
+quote-style = "double"

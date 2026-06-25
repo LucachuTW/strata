@@ -1,0 +1,33 @@
+# Local datastores. The LLM runs on the host via Ollama (dev) or vLLM (prod),
+# so it is intentionally not containerized here.
+services:
+  neo4j:
+    image: neo4j:5.26-community
+    container_name: strata-neo4j
+    ports:
+      - "7474:7474"   # browser
+      - "7687:7687"   # bolt
+    environment:
+      NEO4J_AUTH: "neo4j/${NEO4J_PASSWORD:-graphrag_dev_pw}"
+      NEO4J_server_memory_heap_max__size: "1G"
+      NEO4J_server_memory_pagecache_size: "512M"
+    volumes:
+      - neo4j_data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "cypher-shell -u neo4j -p ${NEO4J_PASSWORD:-graphrag_dev_pw} 'RETURN 1' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: strata-qdrant
+    ports:
+      - "6333:6333"   # http
+      - "6334:6334"   # grpc
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+volumes:
+  neo4j_data:
+  qdrant_data:
