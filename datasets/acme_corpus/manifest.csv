@@ -1,0 +1,7 @@
+path,tenant,owner,confidentiality,effective_from,effective_to,description
+documents/public_company_overview.md,default,communications,public,2025-01-01,,Public overview of Acme Corporation and its subsidiary.
+documents/internal_information_governance_policy.md,default,legal,internal,2025-01-15,,Internal information governance and retention policy.
+documents/internal_product_launch_notes.md,default,product,internal,2025-03-01,,Internal product launch notes for SafeGuard and automation systems.
+documents/confidential_financial_report_2025.md,default,finance,confidential,2025-12-31,,Confidential fiscal 2025 revenue and subsidiary contribution report.
+documents/confidential_risk_register_2025.md,default,risk,confidential,2025-04-15,,Confidential risk register for supply chain and currency exposure.
+documents/restricted_board_memo_robotics.md,default,board,restricted,2025-05-20,,Restricted board memo about Acme Robotics strategy and targets.

@@ -1,0 +1,117 @@
+{
+  "tenant": "default",
+  "clearance": "restricted",
+  "runs": [
+    {
+      "query": "Who is the CFO of Acme Robotics and which risks affect Acme Corporation?",
+      "returned_chunks": 6,
+      "metrics": {
+        "timings_ms": {
+          "vector_retrieval": 4540.77,
+          "hybrid_retrieval": 4545.0,
+          "graph_retrieval": 4.23,
+          "rrf": 0.01,
+          "rerank": 3395.17
+        },
+        "counts": {
+          "vector_hits": 10,
+          "graph_seed_chunks": 5,
+          "graph_hits": 5,
+          "fused_candidates": 10,
+          "rerank_candidates": 6,
+          "returned_chunks": 6
+        },
+        "budget_status": {
+          "hybrid_retrieval": {
+            "elapsed_ms": 4545.0,
+            "target_ms": 50,
+            "max_ms": 150,
+            "within_target": false,
+            "within_max": false
+          },
+          "rerank": {
+            "elapsed_ms": 3395.17,
+            "target_ms": 50,
+            "max_ms": 150,
+            "within_target": false,
+            "within_max": false
+          }
+        }
+      }
+    },
+    {
+      "query": "Which CISA KEV entries mention ransomware?",
+      "returned_chunks": 6,
+      "metrics": {
+        "timings_ms": {
+          "vector_retrieval": 52.47,
+          "hybrid_retrieval": 56.44,
+          "graph_retrieval": 3.96,
+          "rrf": 0.01,
+          "rerank": 229.06
+        },
+        "counts": {
+          "vector_hits": 10,
+          "graph_seed_chunks": 5,
+          "graph_hits": 5,
+          "fused_candidates": 10,
+          "rerank_candidates": 6,
+          "returned_chunks": 6
+        },
+        "budget_status": {
+          "hybrid_retrieval": {
+            "elapsed_ms": 56.44,
+            "target_ms": 50,
+            "max_ms": 150,
+            "within_target": false,
+            "within_max": true
+          },
+          "rerank": {
+            "elapsed_ms": 229.06,
+            "target_ms": 50,
+            "max_ms": 150,
+            "within_target": false,
+            "within_max": false
+          }
+        }
+      }
+    },
+    {
+      "query": "Which company filings discuss supply chain risk?",
+      "returned_chunks": 6,
+      "metrics": {
+        "timings_ms": {
+          "vector_retrieval": 54.61,
+          "hybrid_retrieval": 58.17,
+          "graph_retrieval": 3.56,
+          "rrf": 0.01,
+          "rerank": 227.12
+        },
+        "counts": {
+          "vector_hits": 10,
+          "graph_seed_chunks": 5,
+          "graph_hits": 5,
+          "fused_candidates": 10,
+          "rerank_candidates": 6,
+          "returned_chunks": 6
+        },
+        "budget_status": {
+          "hybrid_retrieval": {
+            "elapsed_ms": 58.17,
+            "target_ms": 50,
+            "max_ms": 150,
+            "within_target": false,
+            "within_max": true
+          },
+          "rerank": {
+            "elapsed_ms": 227.12,
+            "target_ms": 50,
+            "max_ms": 150,
+            "within_target": false,
+            "within_max": false
+          }
+        }
+      }
+    }
+  ]
+}

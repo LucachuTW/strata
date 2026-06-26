@@ -1,0 +1,24 @@
+id,type,url,description
+sec_msft_10k,sec_submissions,https://data.sec.gov/submissions/CIK0000789019.json,Latest Microsoft 10-K resolved through SEC EDGAR submissions API.
+sec_aapl_10k,sec_submissions,https://data.sec.gov/submissions/CIK0000320193.json,Latest Apple 10-K resolved through SEC EDGAR submissions API.
+sec_nvda_10k,sec_submissions,https://data.sec.gov/submissions/CIK0001045810.json,Latest NVIDIA 10-K resolved through SEC EDGAR submissions API.
+sec_amzn_10k,sec_submissions,https://data.sec.gov/submissions/CIK0001018724.json,Latest Amazon 10-K resolved through SEC EDGAR submissions API.
+sec_googl_10k,sec_submissions,https://data.sec.gov/submissions/CIK0001652044.json,Latest Alphabet 10-K resolved through SEC EDGAR submissions API.
+sec_meta_10k,sec_submissions,https://data.sec.gov/submissions/CIK0001326801.json,Latest Meta Platforms 10-K resolved through SEC EDGAR submissions API.
+sec_tsla_10k,sec_submissions,https://data.sec.gov/submissions/CIK0001318605.json,Latest Tesla 10-K resolved through SEC EDGAR submissions API.
+sec_jpm_10k,sec_submissions,https://data.sec.gov/submissions/CIK0000019617.json,Latest JPMorgan Chase 10-K resolved through SEC EDGAR submissions API.
+sec_wmt_10k,sec_submissions,https://data.sec.gov/submissions/CIK0000104169.json,Latest Walmart 10-K resolved through SEC EDGAR submissions API.
+sec_xom_10k,sec_submissions,https://data.sec.gov/submissions/CIK0000034088.json,Latest Exxon Mobil 10-K resolved through SEC EDGAR submissions API.
+sec_unh_10k,sec_submissions,https://data.sec.gov/submissions/CIK0000731766.json,Latest UnitedHealth Group 10-K resolved through SEC EDGAR submissions API.
+sec_jnj_10k,sec_submissions,https://data.sec.gov/submissions/CIK0000200406.json,Latest Johnson & Johnson 10-K resolved through SEC EDGAR submissions API.
+sec_pg_10k,sec_submissions,https://data.sec.gov/submissions/CIK0000080424.json,Latest Procter & Gamble 10-K resolved through SEC EDGAR submissions API.
+sec_hd_10k,sec_submissions,https://data.sec.gov/submissions/CIK0000354950.json,Latest Home Depot 10-K resolved through SEC EDGAR submissions API.
+sec_v_10k,sec_submissions,https://data.sec.gov/submissions/CIK0001403161.json,Latest Visa 10-K resolved through SEC EDGAR submissions API.
+sec_ma_10k,sec_submissions,https://data.sec.gov/submissions/CIK0001141391.json,Latest Mastercard 10-K resolved through SEC EDGAR submissions API.
+sec_cost_10k,sec_submissions,https://data.sec.gov/submissions/CIK0000909832.json,Latest Costco 10-K resolved through SEC EDGAR submissions API.
+sec_nflx_10k,sec_submissions,https://data.sec.gov/submissions/CIK0001065280.json,Latest Netflix 10-K resolved through SEC EDGAR submissions API.
+sec_adbe_10k,sec_submissions,https://data.sec.gov/submissions/CIK0000796343.json,Latest Adobe 10-K resolved through SEC EDGAR submissions API.
+sec_crm_10k,sec_submissions,https://data.sec.gov/submissions/CIK0001108524.json,Latest Salesforce 10-K resolved through SEC EDGAR submissions API.
+cisa_kev,json,https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json,CISA Known Exploited Vulnerabilities catalog feed converted to one index document plus one Markdown document per vulnerability.
+nist_ai_rmf,pdf,https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf,NIST AI Risk Management Framework 1.0.
+nist_csf_2,pdf,https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf,NIST Cybersecurity Framework 2.0.
