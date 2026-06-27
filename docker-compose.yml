@@ -28,6 +28,29 @@ services:
     volumes:
       - qdrant_data:/qdrant/storage
 
+  # Optional: run the Strata API in a container, wired to the datastores above and the
+  # host LLM. Off by default (profile-gated); start with:  docker compose --profile app up --build
+  strata:
+    build: .
+    container_name: strata-app
+    profiles: ["app"]
+    command: ["serve", "api", "--host", "0.0.0.0", "--port", "8000"]
+    ports:
+      - "8000:8000"
+    environment:
+      NEO4J_URI: "bolt://neo4j:7687"
+      NEO4J_PASSWORD: "${NEO4J_PASSWORD:-graphrag_dev_pw}"
+      QDRANT_URL: "http://qdrant:6333"
+      # host Ollama/vLLM from inside the container (Linux: needs host-gateway below)
+      LLM_BASE_URL: "${LLM_BASE_URL:-http://host.docker.internal:11434/v1}"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      neo4j:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+
 volumes:
   neo4j_data:
   qdrant_data:
