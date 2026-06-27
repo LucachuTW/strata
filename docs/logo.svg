@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="150" viewBox="0 0 480 150" role="img" aria-label="Strata">
+  <title>Strata</title>
+  <defs>
+    <linearGradient id="strata" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+  </defs>
+  <!-- Four stacked strata = the four clearance levels (public < internal < confidential < restricted) -->
+  <g transform="translate(18,30)">
+    <rect x="0"  y="0"  width="96" height="16" rx="3" fill="#93c5fd"/>
+    <rect x="6"  y="24" width="84" height="16" rx="3" fill="#60a5fa"/>
+    <rect x="12" y="48" width="72" height="16" rx="3" fill="#3b82f6"/>
+    <rect x="18" y="72" width="60" height="16" rx="3" fill="#1e3a8a"/>
+  </g>
+  <text x="140" y="78" font-family="ui-sans-serif,Segoe UI,Helvetica,Arial,sans-serif"
+        font-size="58" font-weight="800" letter-spacing="2" fill="url(#strata)">STRATA</text>
+  <text x="142" y="108" font-family="ui-sans-serif,Segoe UI,Helvetica,Arial,sans-serif"
+        font-size="14" font-weight="500" fill="#64748b">clearance-aware GraphRAG</text>
+</svg>
