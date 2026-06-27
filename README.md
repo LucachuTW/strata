@@ -25,6 +25,10 @@ model API is required.
 
 See [`docs/DEMO.md`](docs/DEMO.md) for a 60-second walkthrough.
 
+<p align="center">
+  <img src="docs/strata-demo.gif" alt="Strata demo — clearance-aware retrieval refuses a restricted fact at public clearance, then answers it at restricted, then a multi-hop query" width="820">
+</p>
+
 ### What this project demonstrates
 
 - **Security-first retrieval** — ACLs enforced *inside* the Qdrant filter and Neo4j `WHERE`, never as a
