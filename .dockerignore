@@ -14,10 +14,4 @@ docs
 scripts
 datasets
 data
-# generated report/metric artifacts
-*_metrics.json
-EVAL_METRICS*.md
-PROJECT_METRICS.md
-RUNTIME_METRICS.md
-PLAN.md
-demo.tape
+reports

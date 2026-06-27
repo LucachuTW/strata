@@ -26,5 +26,5 @@ hr "5. Retrieval metrics (no LLM): latency + candidate counts"
 run uv run strata query-metrics "Which risks affect Acme Corporation?" --clearance confidential
 
 hr "6. Quality numbers over the golden set (recall, correctness, ACL-safety, agent-vs-single)"
-echo "    Full run:  uv run strata eval        (writes EVAL_METRICS.md)"
+echo "    Full run:  uv run strata eval        (writes reports/EVAL_METRICS.md)"
 echo "    Smoke:     uv run strata eval --limit 4"

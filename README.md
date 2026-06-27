@@ -45,7 +45,7 @@ sets, on two corpora.
 ### Synthetic Acme corpus — the ACL story
 
 20-item golden set with confidentiality tiers (12 factual, 3 multi-hop, 5 ACL-denial); full breakdown
-in [`EVAL_METRICS.md`](EVAL_METRICS.md):
+in [`reports/EVAL_METRICS.md`](reports/EVAL_METRICS.md):
 
 | Metric | Result |
 |---|---|
@@ -64,7 +64,7 @@ is 1.00 on every item except one multi-hop question that missed a second support
 
 14-item golden set over a **150-document slice of the live CISA Known Exploited Vulnerabilities
 catalog** (450 chunks of near-identical CVE records); breakdown in
-[`EVAL_METRICS_real.md`](EVAL_METRICS_real.md).
+[`reports/EVAL_METRICS_real.md`](reports/EVAL_METRICS_real.md).
 
 The first run exposed a real weakness: pure **dense** retrieval (BGE-M3) can't pin exact
 identifiers. For a query like *"what product is affected by CVE-2026-35273?"* the right record
@@ -92,7 +92,7 @@ The runs above hit 100% on a lenient substring metric — which mostly says the 
 questions phrased **without** the CVE ID (semantic retrieval), disambiguation between two CVEs, and
 **absent-fact refusal** cases (a missing CVE, an off-corpus topic, and an attribute the KEV records
 don't carry — a CVSS score). Scoring adds a **strict LLM-judge** alongside the lenient substring.
-Breakdown in [`EVAL_METRICS_real_hard.md`](EVAL_METRICS_real_hard.md):
+Breakdown in [`reports/EVAL_METRICS_real_hard.md`](reports/EVAL_METRICS_real_hard.md):
 
 | Metric | single-pass | agent loop |
 |---|---|---|
@@ -250,7 +250,7 @@ Generate project-level requirement coverage:
 uv run strata metrics project
 ```
 
-This writes `PROJECT_METRICS.md` and `project_metrics.json`. The current report
+This writes `reports/PROJECT_METRICS.md` and `reports/project_metrics.json`. The current report
 shows 17/17 project requirements covered.
 
 Retrieval uses two separate rerank controls:
@@ -316,7 +316,7 @@ Write benchmark metrics for a small query set:
 uv run strata metrics runtime
 ```
 
-This writes `runtime_metrics.json` and `RUNTIME_METRICS.md`.
+This writes `reports/runtime_metrics.json` and `reports/RUNTIME_METRICS.md`.
 
 ## Interfaces
 

@@ -261,6 +261,7 @@ def _pct_str(value: float | None) -> str:
 
 
 def write_reports(results: dict, json_path: Path, md_path: Path) -> None:
+    json_path.parent.mkdir(parents=True, exist_ok=True)
     json_path.write_text(json.dumps(results, indent=2) + "\n", encoding="utf-8")
     s = results["summary"]
     acl_single, acl_agent = s["acl_safety_pct_single"], s["acl_safety_pct_agent"]
@@ -324,8 +325,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--golden", default=None, help="Path to a golden JSONL (default: synthetic Acme set)"
     )
-    parser.add_argument("--json-output", default="eval_metrics.json")
-    parser.add_argument("--markdown-output", default="EVAL_METRICS.md")
+    parser.add_argument("--json-output", default="reports/eval_metrics.json")
+    parser.add_argument("--markdown-output", default="reports/EVAL_METRICS.md")
     args = parser.parse_args(argv)
 
     golden = Path(args.golden) if args.golden else GOLDEN

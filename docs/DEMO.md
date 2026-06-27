@@ -54,7 +54,7 @@ uv run strata ask "Who is the CFO of Acme Robotics and which risks affect Acme C
 ### 3. The numbers (quality, measured)
 
 ```bash
-uv run strata eval        # writes EVAL_METRICS.md + eval_metrics.json
+uv run strata eval        # writes reports/EVAL_METRICS.md + reports/eval_metrics.json
 ```
 
 Reports, over a versioned golden set on the synthetic corpus:

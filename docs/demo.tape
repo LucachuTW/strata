@@ -1,4 +1,4 @@
-# Render the README GIF:  vhs demo.tape  ->  docs/strata-demo.gif
+# Render the README GIF:  vhs docs/demo.tape  ->  docs/strata-demo.gif  (run from repo root)
 # Needs the stack up + corpus seeded first:
 #   docker compose up -d && ollama serve & bash scripts/pull_models.sh
 #   uv run strata seed-demo --reset

@@ -66,8 +66,8 @@ def main(argv: list[str] | None = None) -> int:
         choices=[c.value for c in Confidentiality],
     )
     parser.add_argument("--query", action="append", dest="queries")
-    parser.add_argument("--json-output", default="runtime_metrics.json")
-    parser.add_argument("--markdown-output", default="RUNTIME_METRICS.md")
+    parser.add_argument("--json-output", default="reports/runtime_metrics.json")
+    parser.add_argument("--markdown-output", default="reports/RUNTIME_METRICS.md")
     args = parser.parse_args(argv)
 
     acl = AclContext(tenant=args.tenant, clearance=Confidentiality(args.clearance))
@@ -88,6 +88,7 @@ def main(argv: list[str] | None = None) -> int:
 
     json_path = Path(args.json_output)
     markdown_path = Path(args.markdown_output)
+    json_path.parent.mkdir(parents=True, exist_ok=True)
     json_path.write_text(json.dumps(results, indent=2) + "\n", encoding="utf-8")
     _write_markdown(results, markdown_path)
     print(

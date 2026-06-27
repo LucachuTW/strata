@@ -252,8 +252,8 @@ def build_parser() -> argparse.ArgumentParser:
     ev.add_argument(
         "--golden", default=None, help="Path to a golden JSONL (default: synthetic Acme set)"
     )
-    ev.add_argument("--json-output", default="eval_metrics.json")
-    ev.add_argument("--markdown-output", default="EVAL_METRICS.md")
+    ev.add_argument("--json-output", default="reports/eval_metrics.json")
+    ev.add_argument("--markdown-output", default="reports/EVAL_METRICS.md")
 
     serve = sub.add_parser("serve", help="Run an interface server")
     serve.add_argument("target", choices=["api", "mcp"])

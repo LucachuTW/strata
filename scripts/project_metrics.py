@@ -287,10 +287,12 @@ def _write_report(metrics: dict, path: Path) -> None:
 
 def main() -> int:
     metrics = project_metrics()
-    (ROOT / "project_metrics.json").write_text(
+    reports = ROOT / "reports"
+    reports.mkdir(parents=True, exist_ok=True)
+    (reports / "project_metrics.json").write_text(
         json.dumps(metrics, indent=2) + "\n", encoding="utf-8"
     )
-    _write_report(metrics, ROOT / "PROJECT_METRICS.md")
+    _write_report(metrics, reports / "PROJECT_METRICS.md")
     print(
         json.dumps(
             {
